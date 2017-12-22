@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+if [ -z "$1" ]; then
+    echo "please provide name of key"
+    exit 1
+fi
+email=$(git config user.email)
+echo $email
+if [ -z $email ]; then
+    echo "email not set in ~/.gitconfig"
+    echo "please set email using 'git config --global user.email YOUR_EMAIL'"
+    exit 1
+fi
+private_key=~/.ssh/${1}
+public_key=~/.ssh/${1}.pub
+if [[ -f "$public_key" ]]; then
+    echo "key $public_key already exists"
+    exit 1
+fi
+echo "creating keypair for $1"
+ssh-keygen -t rsa -N "" -b 4096 -C $email -f $private_key
+eval "$(ssh-agent -s)"
+ssh-add $private_key 
+exit 0
