@@ -1,8 +1,10 @@
 # ssh-create
 
-Creates an ssh keypair for you and puts it in ~/.ssh.
+1. Creates an ssh keypair for you and puts it in ~/.ssh.
 
+2. Starts ssh agent.
 
+3. Adds keypair to keyring via ssh-add.
 
 ## Example:
 
@@ -28,3 +30,14 @@ Identity added: /home/USER/.ssh/derp (/home/USER/.ssh/derp)
 ```
 $> install
 ```
+copies `ssh-create` to `~/.local/bin`
+
+if `~/.local/bin` is not in your path, add the following to the end of your .zshrc, or .bashrc, or whatever rc file you use.
+
+```
+echo 'PATH=~/.local/bin:$PATH >> YOUR_RC_FILE_NAME && source YOUR_RC_FILE_NAME
+
+echo 'PATH=~/.local/bin:$PATH >> ~/.zshrc && source ~/.zshrc
+```
+
+
