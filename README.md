@@ -35,9 +35,9 @@ copies `ssh-create` to `~/.local/bin`
 if `~/.local/bin` is not in your path, add the following to the end of your .zshrc, or .bashrc, or whatever rc file you use.
 
 ```
-echo 'PATH=~/.local/bin:$PATH >> YOUR_RC_FILE_NAME && source YOUR_RC_FILE_NAME
+echo 'PATH=~/.local/bin:$PATH' >> YOUR_RC_FILE_NAME && source YOUR_RC_FILE_NAME
 
-echo 'PATH=~/.local/bin:$PATH >> ~/.zshrc && source ~/.zshrc
+echo 'PATH=~/.local/bin:$PATH' >> ~/.zshrc && source ~/.zshrc
 ```
 
 
