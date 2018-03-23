@@ -11,7 +11,7 @@
 ```
 $> ssh-create derp
 YOUR_EMAIL.com
-creating keypair for derpa
+creating keypair for derp
 Generating public/private rsa key pair.
 Your identification has been saved in /home/USER/.ssh/derp.
 Your public key has been saved in /home/USER/.ssh/derp.pub.
