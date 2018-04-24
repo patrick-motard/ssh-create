@@ -11,7 +11,7 @@
 ```
 $> ssh-create derp
 YOUR_EMAIL.com
-creating keypair for derpa
+creating keypair for derp
 Generating public/private rsa key pair.
 Your identification has been saved in /home/USER/.ssh/derp.
 Your public key has been saved in /home/USER/.ssh/derp.pub.
@@ -35,9 +35,9 @@ copies `ssh-create` to `~/.local/bin`
 if `~/.local/bin` is not in your path, add the following to the end of your .zshrc, or .bashrc, or whatever rc file you use.
 
 ```
-echo 'PATH=~/.local/bin:$PATH >> YOUR_RC_FILE_NAME && source YOUR_RC_FILE_NAME
+echo 'PATH=~/.local/bin:$PATH' >> YOUR_RC_FILE_NAME && source YOUR_RC_FILE_NAME
 
-echo 'PATH=~/.local/bin:$PATH >> ~/.zshrc && source ~/.zshrc
+echo 'PATH=~/.local/bin:$PATH' >> ~/.zshrc && source ~/.zshrc
 ```
 
 
