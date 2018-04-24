@@ -1,23 +1,70 @@
 #!/usr/bin/env bash
-if [ -z "$1" ]; then
-    echo "please provide name of key"
+usage="NAME
+      ssh-create - creates an ssh keypair for you, given a name,
+      placing it in your ~/.ssh and adding it to your keyring.
+
+SYNOPSIS
+      ssh-create [-h] -n my-key
+
+
+ARGUMENTS
+       -n name
+          Name of a keypair you would like to create.
+
+          Example:
+              ssh-create -n my-key
+"
+
+while test $# -gt 0; do
+	  case "$1" in
+        --help|-h|-\?)
+            echo "$usage" >&2
+            exit
+            ;;
+        -n|--keyname)
+            keyname=$2
+            shift
+            ;;
+        \?)
+            echo "Invalid flag: $1" >&2
+            exit 1
+            ;;
+        *)
+            echo "Invalid flag: $1" >&2
+            exit 1
+            break
+    esac
+    shift
+done
+
+Red='\033[0;31m'
+Color_Off='\033[0m'
+
+pe() {
+    printf "${Red}Error: ${1} ${Color_Off} \n" >&2
+    printf "${usage}"
     exit 1
+}
+
+if [[ -z ${keyname} ]]; then
+    pe "Missing Required Flag: (-n) keyname"
 fi
+
 email=$(git config user.email)
-echo $email
-if [ -z $email ]; then
+
+if [[ -z $email ]]; then
     echo "email not set in ~/.gitconfig"
     echo "please set email using 'git config --global user.email YOUR_EMAIL'"
     exit 1
 fi
-private_key=~/.ssh/${1}
-public_key=~/.ssh/${1}.pub
+
+private_key=~/.ssh/${keyname}
+public_key=~/.ssh/${keyname}.pub
 if [[ -f "$public_key" ]]; then
-    echo "key $public_key already exists"
-    exit 1
+    pe "Key $public_key already exists."
 fi
-echo "creating keypair for $1"
+echo "Creating keypair for $keyname."
 ssh-keygen -t rsa -N "" -b 4096 -C $email -f $private_key
 eval "$(ssh-agent -s)"
-ssh-add $private_key 
+ssh-add $private_key
 exit 0
