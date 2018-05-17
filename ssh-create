@@ -50,6 +50,7 @@ if [[ -z ${keyname} ]]; then
     pe "Missing Required Flag: (-n) keyname"
 fi
 
+
 email=$(git config user.email)
 
 if [[ -z $email ]]; then

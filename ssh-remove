@@ -1,0 +1,5 @@
+name=$1
+
+rm ~/.ssh/$name
+rm ~/.ssh/$name.pub
+

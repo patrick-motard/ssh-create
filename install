@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-cp ssh-create ~/.local/bin
+mkdir -p ~/.local/bin/tools
+cp ssh-create ~/.local/bin/tools/
+cp ssh-remove ~/.local/bin/tools/
