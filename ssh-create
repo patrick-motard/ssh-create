@@ -42,7 +42,6 @@ Color_Off='\033[0m'
 
 pe() {
     printf "${Red}Error: ${1} ${Color_Off} \n" >&2
-    printf "${usage}"
     exit 1
 }
 
