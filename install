@@ -2,5 +2,4 @@
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 mkdir -p $HOME/.local/bin/ssh-create
 cp $dir/ssh-create $HOME/.local/bin/ssh-create/
-cp $dir/ssh-deploy $HOME/.local/bin/ssh-create/
 cp $dir/ssh-remove $HOME/.local/bin/ssh-create/
